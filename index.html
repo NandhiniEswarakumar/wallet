@@ -9,13 +9,14 @@
 <body class="flex items-center justify-center min-h-screen bg-white"> <!-- Changed background color to white -->
   <div class="w-full max-w-xl min-h-[500px] p-12 bg-white/80 backdrop-blur-sm rounded-2xl shadow-2xl">
     <div class="flex justify-between mb-6">
-      <a href="home.html" class="text-white text-4xl bg-teal-500 p-3 rounded-full flex items-center justify-center">
+      <a href="home.html" class="text-white text-4xl bg-teal-500 p-3 rounded-full flex items-center justify-center" aria-label="Go to Home">
         <i class="fas fa-home"></i>
+        <span class="sr-only">Go to Home</span>
       </a>
 
       <div>
-        <button id="showLogin" class="px-6 py-3 font-semibold text-white bg-teal-500 rounded-l-full hover:bg-teal-600">Login</button>
-        <button id="showSignup" class="px-6 py-3 font-semibold text-white bg-teal-500 rounded-r-full hover:bg-teal-600">Signup</button>
+        <button id="showLogin" type="button" class="px-6 py-3 font-semibold text-white bg-teal-500 rounded-l-full hover:bg-teal-600">Login</button>
+        <button id="showSignup" type="button" class="px-6 py-3 font-semibold text-white bg-teal-500 rounded-r-full hover:bg-teal-600">Signup</button>
       </div>
     </div>
 
@@ -56,8 +57,8 @@
     };
   </script>
   <div class="bottom-center">
-    
-   <!--  <a href="home.html" class="text-teal-500 font-semibold hover:underline">Go to Home</a> -->
+   <a href="home.html" class="text-teal-500 font-semibold hover:underline">Go to Home</a>
+    <p class="text-gray-500 text-sm">Already have an account? <a href="#" class="text-teal-500 font-semibold hover:underline">Login</a></p>
   </div>
   <script src="log.js"></script>
 </body>
