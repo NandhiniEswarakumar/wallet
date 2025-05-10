@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Wallet & Spending Analyzer</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container py-4">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="text-center mb-4 title">Digital Wallet & Spending Analyzer</h1>
+      </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="row mb-4">
+      <div class="col-md-6 offset-md-3">
+        <select id="filter" class="form-select">
+          <option value="all">All Transactions</option>
+          <option value="year">This Year</option>
+          <option value="month">This Month</option>
+          <option value="week">This Week</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Balance Overview -->
+    <div class="row mb-4">
+      <div class="col-md-4 mb-3 mb-md-0">
+        <div class="card h-100 balance-card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Total Balance</h5>
+            <h2 id="totalBalance">₹0.00</h2>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-3 mb-md-0">
+        <div class="card h-100 income-card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Total Income</h5>
+            <h2 id="totalIncome">₹0.00</h2>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 expense-card">
+          <div class="card-body text-center">
+            <h5 class="card-title">Total Expenses</h5>
+            <h2 id="totalExpense">₹0.00</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Transaction + Chart -->
+    <div class="row">
+      <div class="col-md-7 mb-4">
+        <div class="card h-100">
+          <div class="card-header">
+            <h4>Add Transaction</h4>
+          </div>
+          <div class="card-body">
+            <form id="transactionForm">
+              <div class="mb-3">
+                <label for="amount" class="form-label">Amount</label>
+                <input type="number" class="form-control" id="amount" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="type" class="form-label">Type</label>
+                <select id="type" class="form-select" required>
+                  <option value="">Select Type</option>
+                  <option value="income">Income</option>
+                  <option value="expense">Expense</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" class="form-control" id="date" required>
+              </div>
+              <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <input type="text" class="form-control" id="category" required>
+              </div>
+              
+              <button type="submit" class="btn btn-primary w-100">Add Transaction</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-5 mb-4">
+        <div class="card h-100">
+          <div class="card-header">
+            <h4>Spending Overview</h4>
+          </div>
+          <div class="card-body d-flex justify-content-center align-items-center">
+            <div class="chart-container">
+              <canvas id="spendingChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Transaction History -->
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h4>Transaction History</h4>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Amount</th>
+                    <th>Type</th>
+                    <th>Category</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="transactionTable"></tbody>
+              </table>
+            </div>
+            <div id="emptyState" class="text-center py-3 d-none">
+              <p class="text-muted">No transactions yet. Add your first transaction above!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <footer class="footer mt-auto py-4 bg-dark text-white text-center">
+    <p>© 2025 FinTrack. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <a href="index.html">Login</a>
+  <script src="log.js"></script>
+
+
+</body>
+</html>
